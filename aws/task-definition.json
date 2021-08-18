@@ -8,7 +8,7 @@
         {
           "value": "arn:aws:s3:::map-viewer-api/.env",
           "type": "s3"
-      }
+        }
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
@@ -21,9 +21,7 @@
       },
       "entryPoint": null,
       "portMappings": [
-        {
-          "containerPort": 3000
-        }
+        { "hostPort": 80, "protocol": "tcp", "containerPort": 3000 }
       ],
       "command": null,
       "linuxParameters": null,
