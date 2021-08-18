@@ -7,6 +7,7 @@ import errorMiddleware from '@middleware/error';
 import loggerMiddleware from '@middleware/logger';
 import authRouter from '@routes/auth';
 import dataRouter from '@routes/data';
+import healthCheckRouter from '@routes/healthCheck';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
+app.use('/health-check', healthCheckRouter);
 app.use('/auth', authRouter);
 app.use('/data', authMiddleware, dataRouter);
 
