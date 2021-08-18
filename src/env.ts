@@ -2,15 +2,18 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-if (!process.env.PASSWORD) {
-  throw new Error('Environment variable PASSWORD not set.');
+const vars = ['PASSWORD', 'USERNAME', 'SECRET_KEY', 'CORS_ORIGIN', 'MAP_TOKEN'];
+
+for (const envVar of vars) {
+  if (!process.env[envVar]) {
+    throw new Error(`Environment variable ${envVar} not set.`);
+  }
 }
 
-if (!process.env.SECRET_KEY) {
-  throw new Error('Environment variable SECRET_KEY not set.');
-}
-
-export const env = {
+export const env: Record<string, string> = {
   password: process.env.PASSWORD,
+  username: process.env.USERNAME,
   secretKey: process.env.SECRET_KEY,
-};
+  corsOrigin: process.env.CORS_ORIGIN,
+  mapToken: process.env.MAP_TOKEN,
+} as Record<string, string>;

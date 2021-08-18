@@ -29,7 +29,7 @@ const authController = {
     const result = await bcrypt.compare(password, env.password);
     if (result) {
       const token = jwt.sign(
-        { username, mapToken: process.env.MAP_TOKEN },
+        { username, mapToken: env.mapToken },
         env.secretKey,
         {
           expiresIn: '1h',
