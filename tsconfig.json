@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@controllers/*": ["src/controllers/*"],
+      "@lib*": ["src/lib*"],
+      "@middleware/*": ["src/middleware/*"],
+      "@routes/*": ["src/routes/*"],
+      "@data/*": ["data/*"],
+      "@logs/*": ["logs/*"],
+      "@src/*": ["src/*"]
+    }
+  },
+  "include": ["src/"],
+  "exclude": ["node_modules"]
+}
