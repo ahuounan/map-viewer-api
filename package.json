@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "test:ci": "jest --ci --config=jest/jest.config.js",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
     "serve:watch": "nodemon --watch dist dist/bundle.js",
     "dev": "npm-run-all -p build:watch serve:watch",
+    "start": "node dist/bundle.js",
     "typecheck": "tsc",
     "format": "prettier -c .",
     "format:fix": "prettier -w .",
