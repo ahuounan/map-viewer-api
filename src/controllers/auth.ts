@@ -4,8 +4,6 @@ import { NextFunction, Request, Response } from 'express';
 import createHttpError from 'http-errors';
 import jwt from 'jsonwebtoken';
 
-import { env } from '@src/env';
-
 const authController = {
   async basic(req: Request, res: Response, next: NextFunction): Promise<void> {
     const auth = req.headers.authorization;
@@ -26,11 +24,11 @@ const authController = {
       return next(createHttpError(401, 'Unauthorized.'));
     }
 
-    const result = await bcrypt.compare(password, env.password);
+    const result = await bcrypt.compare(password, process.env.PASSWORD);
     if (result) {
       const token = jwt.sign(
-        { username, mapToken: env.mapToken },
-        env.secretKey,
+        { username, mapToken: process.env.MAP_TOKEN },
+        process.env.SECRET_KEY,
         {
           expiresIn: '1h',
         }
@@ -55,7 +53,7 @@ const authController = {
 
     const [, b64] = auth.split('Bearer ');
     try {
-      jwt.verify(b64, env.secretKey);
+      jwt.verify(b64, process.env.SECRET_KEY);
     } catch (e) {
       return next(createHttpError(401, 'Unauthorized'));
     }

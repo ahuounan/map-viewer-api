@@ -1,4 +1,5 @@
 import cors from 'cors';
+import dotenv from 'dotenv';
 import express from 'express';
 
 import Logger from '@lib/logger';
@@ -9,14 +10,14 @@ import authRouter from '@routes/auth';
 import dataRouter from '@routes/data';
 import healthCheckRouter from '@routes/healthCheck';
 
-import { env } from './env';
+dotenv.config();
 
 const app = express();
-
+Logger.info('>>>', process.env.CORS_ORIGIN);
 app.use(loggerMiddleware);
 app.use(
   cors({
-    origin: env.crossOrigin,
+    origin: process.env.CORS_ORIGIN,
     optionsSuccessStatus: 200,
   })
 );
@@ -26,6 +27,6 @@ app.use('/data', authMiddleware, dataRouter);
 
 app.use(errorMiddleware);
 
-app.listen(env.port, () => {
-  Logger.info(`Server online at port ${env.port}`);
+app.listen(process.env.PORT, () => {
+  Logger.info(`Server online at port ${process.env.PORT}`);
 });
