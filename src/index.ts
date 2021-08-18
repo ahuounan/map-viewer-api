@@ -9,12 +9,14 @@ import authRouter from '@routes/auth';
 import dataRouter from '@routes/data';
 import healthCheckRouter from '@routes/healthCheck';
 
+import { env } from './env';
+
 const app = express();
 
 app.use(loggerMiddleware);
 app.use(
   cors({
-    origin: process.env.API_HOST,
+    origin: env.crossOrigin,
     optionsSuccessStatus: 200,
   })
 );
@@ -24,6 +26,6 @@ app.use('/data', authMiddleware, dataRouter);
 
 app.use(errorMiddleware);
 
-app.listen(process.env.PORT, () => {
-  Logger.info(`Server online at port ${process.env.PORT}`);
+app.listen(env.port, () => {
+  Logger.info(`Server online at port ${env.port}`);
 });

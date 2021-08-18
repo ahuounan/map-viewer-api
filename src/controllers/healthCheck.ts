@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 const healthCheckController = {
-  get(_req: Request, res: Response, next: NextFunction) {
+  get(_req: Request, res: Response): void {
     res.status(200).send('ok');
   },
 };
