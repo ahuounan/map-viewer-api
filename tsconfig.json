@@ -14,6 +14,6 @@
       "@src/*": ["src/*"]
     }
   },
-  "include": ["src/"],
+  "include": ["src/", "environment.d.ts"],
   "exclude": ["node_modules"]
 }

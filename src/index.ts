@@ -10,10 +10,13 @@ import authRouter from '@routes/auth';
 import dataRouter from '@routes/data';
 import healthCheckRouter from '@routes/healthCheck';
 
+import setup from './setup';
+
 dotenv.config();
+setup();
 
 const app = express();
-Logger.info('>>>', process.env.CORS_ORIGIN);
+
 app.use(loggerMiddleware);
 app.use(
   cors({
