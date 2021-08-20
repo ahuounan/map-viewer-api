@@ -1,6 +1,6 @@
 ## Intro
 
-This is the backend repo for the map-viewer application. Frontend can be found [here](https://github.com/ahuounan/map-viewer-ui). This application is deployed at [map-viewer.on-alanhu.com](map-viewer.on-alanhu.com).
+This is the backend repo for the map-viewer application. Frontend can be found [here](https://github.com/ahuounan/map-viewer-ui). This application is deployed at [map-viewer.on-alanhu.com](http://map-viewer.on-alanhu.com).
 
 ## Get Started
 
