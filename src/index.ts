@@ -25,8 +25,8 @@ app.use(
   })
 );
 app.use('/health-check', healthCheckRouter);
-app.use('/auth', authRouter);
-app.use('/data', authMiddleware, dataRouter);
+app.use('/map-viewer/auth', authRouter);
+app.use('/map-viewer/data', authMiddleware, dataRouter);
 
 app.use(errorMiddleware);
 
