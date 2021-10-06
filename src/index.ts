@@ -20,7 +20,7 @@ const app = express();
 app.use(loggerMiddleware);
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: JSON.parse(process.env.CORS_ORIGIN),
     optionsSuccessStatus: 200,
   })
 );

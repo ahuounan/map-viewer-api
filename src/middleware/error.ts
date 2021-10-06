@@ -14,7 +14,7 @@ function errorMiddleware(
     res.status(500).send('Server error.');
     return next();
   }
-  Logger.info('errormiddleware');
+
   res.status(err.status).send(err.message);
   return next();
 }
